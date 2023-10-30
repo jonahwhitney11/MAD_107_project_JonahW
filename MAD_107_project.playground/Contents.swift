@@ -82,4 +82,5 @@ var quinn = Baby(name: "Quinn", gender: "Female")
 quinn.addDiaperChange(date: "October 18", time: 2, oneOrTwo: 2)
 quinn.addDiaperChange(date: "October 23", time: 1, oneOrTwo: 1)
 
+
 print(quinn.events) // testing that different events were added to events array
