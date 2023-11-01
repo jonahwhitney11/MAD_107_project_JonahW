@@ -46,7 +46,7 @@ class Baby {
     }
     
     // method for adding feeding event to array
-    func feed(date: String, time: Int, amount: Float) {
+    func addFeed(date: String, time: Int, amount: Float) {
         
         feeding.append([date, time, amount])
         
@@ -56,7 +56,7 @@ class Baby {
     }
     
     // method for adding tummy time event to tummyTime array and events array
-    func tummyEvent(date: String, time: Int, timeOnTummy: Float) {
+    func addTummyEvent(date: String, time: Int, timeOnTummy: Float) {
         
         tummyTime.append([date, time, timeOnTummy])
         
@@ -66,7 +66,7 @@ class Baby {
     }
     
     // method for adding overnight sleep to sleep and events arrays
-    func overnightSleep(date: String, timeAsleep: Float) {
+    func addOvernightSleep(date: String, timeAsleep: Float) {
         
         sleep.append([date, timeAsleep])
         
@@ -76,7 +76,7 @@ class Baby {
     }
     
     // method for adding naps to nap array and events array
-    func nap(date: String, time: Int, napLength: Float) {
+    func addNap(date: String, time: Int, napLength: Float) {
         
         naps.append([date, time, napLength])
         
