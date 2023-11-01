@@ -64,15 +64,15 @@ class Baby {
         
         sleep.append([date, timeAsleep])
         
-        events.append("Overnight Sleep", date, timeAsleep)
+        events.append(["Overnight Sleep", date, timeAsleep])
     }
     
     // method for adding naps to nap array and events array
     func nap(date: String, time: Int, napLength: Float) {
         
-        naps.append(date, time, napLength)
+        naps.append([date, time, napLength])
         
-        events.append("Nap", date, time, napLength)
+        events.append(["Nap", date, time, napLength])
     }
 }
 
