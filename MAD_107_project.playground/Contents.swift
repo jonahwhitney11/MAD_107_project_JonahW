@@ -41,6 +41,8 @@ class Baby {
         dirtyDiapers.append([date, time, oneOrTwo])
         
         events.append(["Dirty Diaper", date, time, oneOrTwo])
+        
+        print("Dirty Diaper event successfully logged.")
     }
     
     // method for adding feeding event to array
@@ -48,7 +50,9 @@ class Baby {
         
         feeding.append([date, time, amount])
         
-        events.append(["Feed", date, time, amount])
+        events.append(["Feeding", date, time, amount])
+        
+        print("Feeding event successfully logged.")
     }
     
     // method for adding tummy time event to tummyTime array and events array
@@ -57,6 +61,8 @@ class Baby {
         tummyTime.append([date, time, timeOnTummy])
         
         events.append(["Tummy Time", date, time, timeOnTummy])
+        
+        print("Tummy Time event successfully logged.")
     }
     
     // method for adding overnight sleep to sleep and events arrays
@@ -65,6 +71,8 @@ class Baby {
         sleep.append([date, timeAsleep])
         
         events.append(["Overnight Sleep", date, timeAsleep])
+        
+        print("Overnight Sleep event successfully logged.")
     }
     
     // method for adding naps to nap array and events array
@@ -73,6 +81,8 @@ class Baby {
         naps.append([date, time, napLength])
         
         events.append(["Nap", date, time, napLength])
+        
+        print("Nap event successfully logged.")
     }
 }
 
