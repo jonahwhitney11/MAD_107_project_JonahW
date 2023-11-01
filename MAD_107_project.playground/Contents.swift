@@ -89,8 +89,15 @@ class Baby {
 var quinn = Baby(name: "Quinn", gender: "Female")
 
 // testing methods adding different events to appropriate arrays
-quinn.addDiaperChange(date: "October 18", time: 2, oneOrTwo: 2)
-quinn.addDiaperChange(date: "October 23", time: 1, oneOrTwo: 1)
+quinn.addDiaperChange(date: "Octover 18", time: 9, oneOrTwo: 1)
+quinn.addDiaperChange(date: "Octover 18", time: 11, oneOrTwo: 1)
+quinn.addDiaperChange(date: "October 18", time: 14, oneOrTwo: 2)
+quinn.addDiaperChange(date: "Octover 18", time: 16, oneOrTwo: 1)
+quinn.addDiaperChange(date: "Octover 18", time: 18, oneOrTwo: 2)
+quinn.addDiaperChange(date: "October 23", time: 9, oneOrTwo: 1)
+quinn.addDiaperChange(date: "October 23", time: 11, oneOrTwo: 2)
+quinn.addDiaperChange(date: "October 23", time: 13, oneOrTwo: 1)
+quinn.addDiaperChange(date: "October 23", time: 16, oneOrTwo: 2)
 
 
 print(quinn.events) // testing that different events were added to events array
