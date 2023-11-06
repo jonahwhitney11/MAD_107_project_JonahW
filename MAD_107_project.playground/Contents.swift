@@ -85,28 +85,58 @@ class Baby {
         print("Nap event successfully logged.")
     }
     
-    func displayEvents(date: String, eventType: String) {
+    func displayDiaperChange(date: String) {
+        for event in dirtyDiapers {
+            if date == event[0] as! String {
+                print("Dirty diaper on \(date). Baby went number \(event[2]) at \(event[1]).")
+            }
+        }
+    }
+    
+    func displayFeed(date: String) {
+        for event in feeding {
+            if date == event[0] as! String {
+                print("Feeding on \(date), baby consumed \(event[2] as! Float) ounces of milk at \(event[1] as! Int).")
+            }
+        }
+    }
+    
+    func displayTummyTime(date: String) {
+        for event in tummyTime {
+            if date == event[0] as! String {
+                print("Tummy time on \(date), baby played on their tummy at \(event[1] as! Int) for \(event[2] as! Float) hours.")
+            }
+        }
+    }
+    
+    func displayOvernightSleep(date: String) {
+        for event in sleep {
+            if date == event[0] as! String {
+                print("\(name) slept for \(event[1]) hours overnight on \(date).")
+            }
+        }
+    }
+    
+    func displayNaps(date: String) {
+        for event in naps {
+            if date == event[0] as! String {
+                print("\(name) napped on \(date) at \(event[1]) for \(event[2]) hours.")
+            }
+        }
+    }
+    
+    func displayEvents(date: String) {
         for event in events {
-            if date == event[1] as! String && eventType == "Nap" {
-                if eventType == event[0] as! String {
-                    print("\(eventType) on \(date) at \(event[2] as! Int) for \(event[3] as! Float) hours.")
-                }
-            } else if date == event[1] as! String && eventType == "Overnight Sleep" {
-                if eventType == event[0] as! String {
-                    print("\(eventType) on \(date), baby slept for \(event[2] as! Float) hours.")
-                }
-            } else if date == event[1] as! String && eventType == "Dirty Diaper" {
-                if eventType == event[0] as! String {
-                    print("\(eventType) on \(date). Baby went number \(event[3] as! Int) at \(event[2]).")
-                }
-            } else if date == event[1] as! String && eventType == "Tummy Time" {
-                if eventType == event[0] as! String {
-                    print("\(eventType) on \(date), baby played on their tummy at \(event[2] as! Int) for \(event[3] as! Float) hours.")
-                }
-            } else if date == event[1] as! String && eventType == "Feeding" {
-                if eventType == event[0] as! String {
-                    print("\(eventType) on \(date), baby consumed \(event[3] as! Float) ounces of milk at \(event[2] as! Int).")
-                }
+            if date == event[1] as! String && event[0] as! String == "Dirty Diaper" {
+                print("Dirty diaper on \(date). Baby went number \(event[3]) at \(event[2]).")
+            } else if date == event[1] as! String && event[0] as! String == "Feeding" {
+                print("Feeding on \(date), baby consumed \(event[3]) ounces of milk at \(event[2]).")
+            } else if date == event[1] as! String && event[0] as! String == "Tummy Time" {
+                print("Tummy time on \(date), baby played on their tummy at \(event[2]) for \(event[3]) hours.")
+            } else if date == event[1] as! String && event[0] as! String == "Overnight Sleep" {
+                print("\(name) slept for \(event[2]) hours overnight on \(date).")
+            } else {
+                print("\(name) napped on \(date) at \(event[2]) for \(event[3]) hours.")
             }
         }
     }
@@ -264,4 +294,9 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.sleep)
 
 // testing displayEvent method
-quinn.displayEvents(date: "October 18", eventType: "Feeding")
+quinn.displayDiaperChange(date: "October 18")
+// quinn.displayFeed(date: "October 18")
+// quinn.displayTummyTime(date: "October 18")
+// quinn.displayOvernightSleep(date: "October 18")
+// quinn.displayNaps(date: "October 18")
+// quinn.displayEvents(date: "October 18")
