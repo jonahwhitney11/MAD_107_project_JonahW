@@ -294,7 +294,7 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.sleep)
 
 // testing displayEvent method
-quinn.displayDiaperChange(date: "October 18")
+// quinn.displayDiaperChange(date: "October 18")
 // quinn.displayFeed(date: "October 18")
 // quinn.displayTummyTime(date: "October 18")
 // quinn.displayOvernightSleep(date: "October 18")
