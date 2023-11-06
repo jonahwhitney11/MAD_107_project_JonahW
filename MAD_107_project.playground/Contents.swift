@@ -84,6 +84,16 @@ class Baby {
         
         print("Nap event successfully logged.")
     }
+    
+    func displayEvents(date: String, eventType: String) {
+        for event in events {
+            if date == event[1] as! String {
+                if eventType == event[0] as! String {
+                    print(event)
+                }
+            }
+        }
+    }
 }
 
 var quinn = Baby(name: "Quinn", gender: "Female")
@@ -236,3 +246,6 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.naps)
 // print(quinn.tummyTime)
 // print(quinn.sleep)
+
+// testing displayEvent method
+quinn.displayEvents(date: "October 18", eventType: "Nap")
