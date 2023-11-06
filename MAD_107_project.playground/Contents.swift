@@ -5,8 +5,8 @@ import UIKit
 class Baby {
     
     // variables within class for name/gender
-    var name: String
-    var gender: String
+    let name: String
+    let gender: String
     
     init(name: String, gender: String) {
         self.name = name
