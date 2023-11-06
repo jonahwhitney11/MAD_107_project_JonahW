@@ -87,10 +87,28 @@ class Baby {
     
     func displayEvents(date: String, eventType: String) {
         for event in events {
-            if date == event[1] as! String {
+            if date == event[1] as! String && eventType == "Nap" {
                 if eventType == event[0] as! String {
-                    print("\(event[0] as! String) on \(date) at \(event[2] as! Int) for \(event[3] as! Float) hours.")
+                    print("\(eventType) on \(date) at \(event[2] as! Int) for \(event[3] as! Float) hours.")
                 }
+            } else if date == event[1] as! String && eventType == "Overnight Sleep" {
+                if eventType == event[0] as! String {
+                    print("\(eventType) on \(date), baby slept for \(event[2] as! Float) hours.")
+                }
+            } else if date == event[1] as! String && eventType == "Dirty Diaper" {
+                if eventType == event[0] as! String {
+                    print("\(eventType) on \(date). Baby went number \(event[3] as! Int) at \(event[2]).")
+                }
+            } else if date == event[1] as! String && eventType == "Tummy Time" {
+                if eventType == event[0] as! String {
+                    print("\(eventType) on \(date), baby played on their tummy at \(event[2] as! Int) for \(event[3] as! Float) hours.")
+                }
+            } else if date == event[1] as! String && eventType == "Feeding" {
+                if eventType == event[0] as! String {
+                    print("\(eventType) on \(date), baby consumed \(event[3] as! Float) ounces of milk at \(event[2] as! Int).")
+                }
+            } else {
+                print("No events match that type.")
             }
         }
     }
@@ -248,4 +266,4 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.sleep)
 
 // testing displayEvent method
-quinn.displayEvents(date: "October 18", eventType: "Nap")
+quinn.displayEvents(date: "October 18", eventType: "Feeding")
