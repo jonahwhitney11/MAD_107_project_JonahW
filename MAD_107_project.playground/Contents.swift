@@ -107,9 +107,6 @@ class Baby {
                 if eventType == event[0] as! String {
                     print("\(eventType) on \(date), baby consumed \(event[3] as! Float) ounces of milk at \(event[2] as! Int).")
                 }
-            } else {
-                print("No events match the type '\(eventType)'.")
-                break
             }
         }
     }
@@ -267,4 +264,4 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.sleep)
 
 // testing displayEvent method
-quinn.displayEvents(date: "October 18", eventType: "Party Time")
+quinn.displayEvents(date: "October 18", eventType: "Feeding")
