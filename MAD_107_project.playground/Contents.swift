@@ -89,7 +89,7 @@ class Baby {
         for event in events {
             if date == event[1] as! String {
                 if eventType == event[0] as! String {
-                    print(event)
+                    print("\(event[0] as! String) on \(date) at \(event[2] as! Int) for \(event[3] as! Float) hours.")
                 }
             }
         }
