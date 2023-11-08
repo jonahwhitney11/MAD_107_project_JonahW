@@ -135,7 +135,7 @@ class Baby {
                 print("Tummy time on \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
             } else if date == event[1] as! String && event[0] as! String == "Overnight Sleep" {
                 print("\(name) slept for \(event[2]) hours overnight on \(date).")
-            } else {
+            } else if date == event[1] as! String && event[0] as! String == "Nap"{
                 print("\(name) napped on \(date) at \(event[2]) for \(event[3]) hours.")
             }
         }
@@ -299,4 +299,4 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // quinn.displayTummyTime(date: "October 18")
 // quinn.displayOvernightSleep(date: "October 18")
 // quinn.displayNaps(date: "October 18")
-quinn.displayEvents(date: "October 18")
+quinn.displayEvents(date: "October 19")
