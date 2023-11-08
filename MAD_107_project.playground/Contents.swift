@@ -88,7 +88,7 @@ class Baby {
     func displayDiaperChange(date: String) {
         for event in dirtyDiapers {
             if date == event[0] as! String {
-                print("Dirty diaper on \(date). Baby went number \(event[2]) at \(event[1]).")
+                print("Dirty diaper on \(date). \(name) went number \(event[2]) at \(event[1]).")
             }
         }
     }
@@ -96,7 +96,7 @@ class Baby {
     func displayFeed(date: String) {
         for event in feeding {
             if date == event[0] as! String {
-                print("Feeding on \(date), baby consumed \(event[2] as! Float) ounces of milk at \(event[1] as! Int).")
+                print("Feeding on \(date), \(name) consumed \(event[2] as! Float) ounces of milk at \(event[1] as! Int).")
             }
         }
     }
@@ -104,7 +104,7 @@ class Baby {
     func displayTummyTime(date: String) {
         for event in tummyTime {
             if date == event[0] as! String {
-                print("Tummy time on \(date), baby played on their tummy at \(event[1] as! Int) for \(event[2] as! Float) hours.")
+                print("Tummy time on \(date), \(name) played on their tummy at \(event[1] as! Int) for \(event[2] as! Float) hours.")
             }
         }
     }
@@ -128,11 +128,11 @@ class Baby {
     func displayEvents(date: String) {
         for event in events {
             if date == event[1] as! String && event[0] as! String == "Dirty Diaper" {
-                print("Dirty diaper on \(date). Baby went number \(event[3]) at \(event[2]).")
+                print("Dirty diaper on \(date). \(name) went number \(event[3]) at \(event[2]).")
             } else if date == event[1] as! String && event[0] as! String == "Feeding" {
-                print("Feeding on \(date), baby consumed \(event[3]) ounces of milk at \(event[2]).")
+                print("Feeding on \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2]).")
             } else if date == event[1] as! String && event[0] as! String == "Tummy Time" {
-                print("Tummy time on \(date), baby played on their tummy at \(event[2]) for \(event[3]) hours.")
+                print("Tummy time on \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
             } else if date == event[1] as! String && event[0] as! String == "Overnight Sleep" {
                 print("\(name) slept for \(event[2]) hours overnight on \(date).")
             } else {
@@ -299,4 +299,4 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // quinn.displayTummyTime(date: "October 18")
 // quinn.displayOvernightSleep(date: "October 18")
 // quinn.displayNaps(date: "October 18")
-// quinn.displayEvents(date: "October 18")
+quinn.displayEvents(date: "October 18")
