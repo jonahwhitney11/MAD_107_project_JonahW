@@ -35,14 +35,27 @@ class Baby {
     // variable for milk consumption
     var milkConsumed = 0
     
+    // enum with months
+    enum months {
+        case January, February, March, April, May, June, July, August, September, October, November, December
+    }
+    
+    enum eventTypes: String {
+        case dirtyDiaper = "Dirty diaper"
+        case feeding = "Feeding"
+        case sleep = "Overnight sleep"
+        case nap = "Nap"
+        case tummyTime = "Tummy time"
+    }
+    
     // method to add diaper change to dirtyDiapers array and events array
     func addDiaperChange(date: String, time: Int, oneOrTwo: Int) {
         
         dirtyDiapers.append([date, time, oneOrTwo])
         
-        events.append(["Dirty Diaper", date, time, oneOrTwo])
+        events.append([eventTypes.dirtyDiaper.rawValue, date, time, oneOrTwo])
         
-        print("Dirty Diaper event successfully logged.")
+        print("\(eventTypes.dirtyDiaper.rawValue) event successfully logged.")
     }
     
     // method for adding feeding event to array
@@ -50,9 +63,9 @@ class Baby {
         
         feeding.append([date, time, amount])
         
-        events.append(["Feeding", date, time, amount])
+        events.append([eventTypes.feeding.rawValue, date, time, amount])
         
-        print("Feeding event successfully logged.")
+        print("\(eventTypes.feeding.rawValue) event successfully logged.")
     }
     
     // method for adding tummy time event to tummyTime array and events array
@@ -60,9 +73,9 @@ class Baby {
         
         tummyTime.append([date, time, timeOnTummy])
         
-        events.append(["Tummy Time", date, time, timeOnTummy])
+        events.append([eventTypes.tummyTime.rawValue, date, time, timeOnTummy])
         
-        print("Tummy Time event successfully logged.")
+        print("\(eventTypes.tummyTime.rawValue) event successfully logged.")
     }
     
     // method for adding overnight sleep to sleep and events arrays
@@ -70,9 +83,9 @@ class Baby {
         
         sleep.append([date, timeAsleep])
         
-        events.append(["Overnight Sleep", date, timeAsleep])
+        events.append([eventTypes.sleep.rawValue, date, timeAsleep])
         
-        print("Overnight Sleep event successfully logged.")
+        print("\(eventTypes.sleep.rawValue) event successfully logged.")
     }
     
     // method for adding naps to nap array and events array
@@ -80,9 +93,9 @@ class Baby {
         
         naps.append([date, time, napLength])
         
-        events.append(["Nap", date, time, napLength])
+        events.append([eventTypes.nap.rawValue, date, time, napLength])
         
-        print("Nap event successfully logged.")
+        print("\(eventTypes.nap.rawValue) event successfully logged.")
     }
     
     func displayDiaperChange(date: String) {
@@ -127,15 +140,15 @@ class Baby {
     
     func displayEvents(date: String) {
         for event in events {
-            if date == event[1] as! String && event[0] as! String == "Dirty Diaper" {
+            if date == event[1] as! String && event[0] as! String == eventTypes.dirtyDiaper.rawValue {
                 print("Dirty diaper on \(date). \(name) went number \(event[3]) at \(event[2]).")
-            } else if date == event[1] as! String && event[0] as! String == "Feeding" {
+            } else if date == event[1] as! String && event[0] as! String == eventTypes.feeding.rawValue {
                 print("Feeding on \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2]).")
-            } else if date == event[1] as! String && event[0] as! String == "Tummy Time" {
+            } else if date == event[1] as! String && event[0] as! String == eventTypes.tummyTime.rawValue {
                 print("Tummy time on \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
-            } else if date == event[1] as! String && event[0] as! String == "Overnight Sleep" {
+            } else if date == event[1] as! String && event[0] as! String == eventTypes.sleep.rawValue {
                 print("\(name) slept for \(event[2]) hours overnight on \(date).")
-            } else if date == event[1] as! String && event[0] as! String == "Nap"{
+            } else if date == event[1] as! String && event[0] as! String == eventTypes.nap.rawValue {
                 print("\(name) napped on \(date) at \(event[2]) for \(event[3]) hours.")
             }
         }
