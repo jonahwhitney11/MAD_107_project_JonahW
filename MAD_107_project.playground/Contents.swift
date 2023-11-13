@@ -138,18 +138,18 @@ class Baby {
         }
     }
     
-    func displayEvents(date: String) {
+    func displayEvents(month: String, date: Int) {
         for event in events {
-            if date == event[1] as! String && event[0] as! String == eventTypes.dirtyDiaper.rawValue {
-                print("Dirty diaper on \(date). \(name) went number \(event[3]) at \(event[2]).")
-            } else if date == event[1] as! String && event[0] as! String == eventTypes.feeding.rawValue {
-                print("Feeding on \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2]).")
-            } else if date == event[1] as! String && event[0] as! String == eventTypes.tummyTime.rawValue {
-                print("Tummy time on \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
-            } else if date == event[1] as! String && event[0] as! String == eventTypes.sleep.rawValue {
-                print("\(name) slept for \(event[2]) hours overnight on \(date).")
-            } else if date == event[1] as! String && event[0] as! String == eventTypes.nap.rawValue {
-                print("\(name) napped on \(date) at \(event[2]) for \(event[3]) hours.")
+            if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.dirtyDiaper.rawValue == event[0] as! String {
+                print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3]).")
+            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.feeding.rawValue == event[0] as! String {
+                print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3]).")
+            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.tummyTime.rawValue == event[0] as! String {
+                print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3]) for \(event[4]) hours.")
+            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.sleep.rawValue == event[0] as! String {
+                print("\(eventTypes.sleep.rawValue) on \(month) \(date), \(name) slept for \(event[3]) hours.")
+            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.nap.rawValue == event[0] as! String {
+                print("\(name) napped on \(month) \(date) at \(event[3]) for \(event[4]) hours.")
             }
         }
     }
@@ -191,5 +191,5 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 21, o
 // quinn.displayFeed(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayTummyTime(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayOvernightSleep(month: Baby.months.October.rawValue, date: 18)
-quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
-// quinn.displayEvents(date: "October 19")
+// quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
+quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
