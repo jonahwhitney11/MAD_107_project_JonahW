@@ -36,8 +36,8 @@ class Baby {
     var milkConsumed = 0
     
     // enum with months
-    enum months {
-        case January, February, March, April, May, June, July, August, September, October, November, December
+    enum months: String {
+        case January = "January", February, March, April, May, June, July, August, September, October, November, December
     }
     
     enum eventTypes: String {
@@ -158,25 +158,25 @@ class Baby {
 var quinn = Baby(name: "Quinn", gender: "Female")
 
 // testing methods adding different events to appropriate arrays
-quinn.addOvernightSleep(month: "October", date: 18, timeAsleep: 9.75)
-quinn.addDiaperChange(month: "October", date: 18, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: "October", date: 18, time: 7, amount: 3.25)
-quinn.addNap(month: "October", date: 18, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: "October", date: 18, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: "October", date: 18, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: "October", date: 18, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: "October", date: 18, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: "October", date: 18, time: 11, amount: 3)
-quinn.addNap(month: "October", date: 18, time: 12, napLength: 2)
-quinn.addDiaperChange(month: "October", date: 18, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: "October", date: 18, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: "October", date: 18, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: "October", date: 18, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: "October", date: 18, time: 17, amount: 2.5)
-quinn.addNap(month: "October", date: 18, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: "October", date: 18, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: "October", date: 18, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: "October", date: 18, time: 21, oneOrTwo: 1)
+quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 18, timeAsleep: 9.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 7, oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 7, amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 18, time: 8, napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 9, oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 9, amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 18, time: 10, timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 11, oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 11, amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 18, time: 12, napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 14, oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 14, amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 18, time: 15, timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 16, oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 17, amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 18, time: 17, napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 18, oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 20, amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 21, oneOrTwo: 1)
 
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
