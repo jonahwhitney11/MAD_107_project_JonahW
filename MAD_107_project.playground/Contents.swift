@@ -109,7 +109,7 @@ class Baby {
     func displayFeed(date: String) {
         for event in feeding {
             if date == event[0] as! String {
-                print("Feeding on \(date), \(name) consumed \(event[2] as! Float) ounces of milk at \(event[1] as! Int).")
+                print("Feeding on \(date), \(name) consumed \(event[2]) ounces of milk at \(event[1]).")
             }
         }
     }
@@ -117,7 +117,7 @@ class Baby {
     func displayTummyTime(date: String) {
         for event in tummyTime {
             if date == event[0] as! String {
-                print("Tummy time on \(date), \(name) played on their tummy at \(event[1] as! Int) for \(event[2] as! Float) hours.")
+                print("Tummy time on \(date), \(name) played on their tummy at \(event[1]) for \(event[2]) hours.")
             }
         }
     }
