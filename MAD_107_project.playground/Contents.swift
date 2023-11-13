@@ -49,91 +49,91 @@ class Baby {
     }
     
     // method to add diaper change to dirtyDiapers array and events array
-    func addDiaperChange(date: String, time: Int, oneOrTwo: Int) {
+    func addDiaperChange(month: String, date: Int, time: Int, oneOrTwo: Int) {
         
-        dirtyDiapers.append([date, time, oneOrTwo])
+        dirtyDiapers.append([month, date, time, oneOrTwo])
         
-        events.append([eventTypes.dirtyDiaper.rawValue, date, time, oneOrTwo])
+        events.append([eventTypes.dirtyDiaper.rawValue, month, date, time, oneOrTwo])
         
         print("\(eventTypes.dirtyDiaper.rawValue) event successfully logged.")
     }
     
     // method for adding feeding event to array
-    func addFeed(date: String, time: Int, amount: Float) {
+    func addFeed(month: String, date: Int, time: Int, amount: Float) {
         
-        feeding.append([date, time, amount])
+        feeding.append([month, date, time, amount])
         
-        events.append([eventTypes.feeding.rawValue, date, time, amount])
+        events.append([eventTypes.feeding.rawValue, month, date, time, amount])
         
         print("\(eventTypes.feeding.rawValue) event successfully logged.")
     }
     
     // method for adding tummy time event to tummyTime array and events array
-    func addTummyEvent(date: String, time: Int, timeOnTummy: Float) {
+    func addTummyEvent(month: String, date: Int, time: Int, timeOnTummy: Float) {
         
-        tummyTime.append([date, time, timeOnTummy])
+        tummyTime.append([month, date, time, timeOnTummy])
         
-        events.append([eventTypes.tummyTime.rawValue, date, time, timeOnTummy])
+        events.append([eventTypes.tummyTime.rawValue, month, date, time, timeOnTummy])
         
         print("\(eventTypes.tummyTime.rawValue) event successfully logged.")
     }
     
     // method for adding overnight sleep to sleep and events arrays
-    func addOvernightSleep(date: String, timeAsleep: Float) {
+    func addOvernightSleep(month: String, date: Int, timeAsleep: Float) {
         
-        sleep.append([date, timeAsleep])
+        sleep.append([month, date, timeAsleep])
         
-        events.append([eventTypes.sleep.rawValue, date, timeAsleep])
+        events.append([eventTypes.sleep.rawValue, month, date, timeAsleep])
         
         print("\(eventTypes.sleep.rawValue) event successfully logged.")
     }
     
     // method for adding naps to nap array and events array
-    func addNap(date: String, time: Int, napLength: Float) {
+    func addNap(month: String, date: Int, time: Int, napLength: Float) {
         
-        naps.append([date, time, napLength])
+        naps.append([month, date, time, napLength])
         
-        events.append([eventTypes.nap.rawValue, date, time, napLength])
+        events.append([eventTypes.nap.rawValue, month, date, time, napLength])
         
         print("\(eventTypes.nap.rawValue) event successfully logged.")
     }
     
-    func displayDiaperChange(date: String) {
+    func displayDiaperChange(month: String, date: Int) {
         for event in dirtyDiapers {
-            if date == event[0] as! String {
-                print("Dirty diaper on \(date). \(name) went number \(event[2]) at \(event[1]).")
+            if month == event[0] as! String && date == event[1] as! Int {
+                print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2]).")
             }
         }
     }
     
-    func displayFeed(date: String) {
+    func displayFeed(month: String, date: Int) {
         for event in feeding {
-            if date == event[0] as! String {
-                print("Feeding on \(date), \(name) consumed \(event[2]) ounces of milk at \(event[1]).")
+            if month == event[0] as! String && date == event[1] as! Int {
+                print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2]).")
             }
         }
     }
     
-    func displayTummyTime(date: String) {
+    func displayTummyTime(month: String, date: Int) {
         for event in tummyTime {
-            if date == event[0] as! String {
-                print("Tummy time on \(date), \(name) played on their tummy at \(event[1]) for \(event[2]) hours.")
+            if month == event[0] as! String && date == event[1] as! Int {
+                print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
             }
         }
     }
     
-    func displayOvernightSleep(date: String) {
+    func displayOvernightSleep(month: String, date: Int) {
         for event in sleep {
-            if date == event[0] as! String {
-                print("\(name) slept for \(event[1]) hours overnight on \(date).")
+            if month == event[0] as! String && date == event[1] as! Int {
+                print("\(name) slept for \(event[2]) hours overnight on \(month) \(date).")
             }
         }
     }
     
-    func displayNaps(date: String) {
+    func displayNaps(month: String, date: Int) {
         for event in naps {
-            if date == event[0] as! String {
-                print("\(name) napped on \(date) at \(event[1]) for \(event[2]) hours.")
+            if month == event[0] as! String && date == event[1] as! Int {
+                print("\(name) napped on \(month) \(date) at \(event[2]) for \(event[3]) hours.")
             }
         }
     }
@@ -158,145 +158,25 @@ class Baby {
 var quinn = Baby(name: "Quinn", gender: "Female")
 
 // testing methods adding different events to appropriate arrays
-quinn.addOvernightSleep(date: "October 18", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 18", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 18", time: 7, amount: 3.25)
-quinn.addNap(date: "October 18", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 18", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 18", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 18", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 18", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 18", time: 11, amount: 3)
-quinn.addNap(date: "October 18", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 18", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 18", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 18", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 18", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 18", time: 17, amount: 2.5)
-quinn.addNap(date: "October 18", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 18", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 18", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 18", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 19", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 19", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 19", time: 7, amount: 3.25)
-quinn.addNap(date: "October 19", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 19", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 19", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 19", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 19", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 19", time: 11, amount: 3)
-quinn.addNap(date: "October 19", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 19", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 19", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 19", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 19", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 19", time: 17, amount: 2.5)
-quinn.addNap(date: "October 19", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 19", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 19", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 19", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 20", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 20", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 20", time: 7, amount: 3.25)
-quinn.addNap(date: "October 20", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 20", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 20", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 20", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 20", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 20", time: 11, amount: 3)
-quinn.addNap(date: "October 20", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 20", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 20", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 20", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 20", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 20", time: 17, amount: 2.5)
-quinn.addNap(date: "October 20", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 20", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 20", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 20", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 21", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 21", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 21", time: 7, amount: 3.25)
-quinn.addNap(date: "October 21", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 21", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 21", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 21", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 21", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 21", time: 11, amount: 3)
-quinn.addNap(date: "October 21", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 21", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 21", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 21", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 21", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 21", time: 17, amount: 2.5)
-quinn.addNap(date: "October 21", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 21", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 21", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 21", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 22", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 22", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 22", time: 7, amount: 3.25)
-quinn.addNap(date: "October 22", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 22", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 22", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 22", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 22", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 22", time: 11, amount: 3)
-quinn.addNap(date: "October 22", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 22", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 22", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 22", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 22", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 22", time: 17, amount: 2.5)
-quinn.addNap(date: "October 22", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 22", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 22", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 22", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 23", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 23", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 23", time: 7, amount: 3.25)
-quinn.addNap(date: "October 23", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 23", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 23", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 23", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "October 23", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 23", time: 11, amount: 3)
-quinn.addNap(date: "October 23", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 23", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 23", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 23", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 23", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 23", time: 17, amount: 2.5)
-quinn.addNap(date: "October 23", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 23", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 23", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 23", time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(date: "October 24", timeAsleep: 9.75)
-quinn.addDiaperChange(date: "October 24", time: 7, oneOrTwo: 1)
-quinn.addFeed(date: "October 24", time: 7, amount: 3.25)
-quinn.addNap(date: "October 24", time: 8, napLength: 0.75)
-quinn.addDiaperChange(date: "October 24", time: 9, oneOrTwo: 1)
-quinn.addFeed(date: "October 24", time: 9, amount: 3.5)
-quinn.addTummyEvent(date: "October 24", time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(date: "Octover 24", time: 11, oneOrTwo: 1)
-quinn.addFeed(date: "October 24", time: 11, amount: 3)
-quinn.addNap(date: "October 24", time: 12, napLength: 2)
-quinn.addDiaperChange(date: "October 24", time: 14, oneOrTwo: 2)
-quinn.addFeed(date: "October 24", time: 14, amount: 3.5)
-quinn.addTummyEvent(date: "October 24", time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(date: "October 24", time: 16, oneOrTwo: 1)
-quinn.addFeed(date: "October 24", time: 17, amount: 2.5)
-quinn.addNap(date: "October 24", time: 17, napLength: 0.75)
-quinn.addDiaperChange(date: "October 24", time: 18, oneOrTwo: 2)
-quinn.addFeed(date: "October 24", time: 20, amount: 3.75)
-quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
+quinn.addOvernightSleep(month: "October", date: 18, timeAsleep: 9.75)
+quinn.addDiaperChange(month: "October", date: 18, time: 7, oneOrTwo: 1)
+quinn.addFeed(month: "October", date: 18, time: 7, amount: 3.25)
+quinn.addNap(month: "October", date: 18, time: 8, napLength: 0.75)
+quinn.addDiaperChange(month: "October", date: 18, time: 9, oneOrTwo: 1)
+quinn.addFeed(month: "October", date: 18, time: 9, amount: 3.5)
+quinn.addTummyEvent(month: "October", date: 18, time: 10, timeOnTummy: 0.25)
+quinn.addDiaperChange(month: "October", date: 18, time: 11, oneOrTwo: 1)
+quinn.addFeed(month: "October", date: 18, time: 11, amount: 3)
+quinn.addNap(month: "October", date: 18, time: 12, napLength: 2)
+quinn.addDiaperChange(month: "October", date: 18, time: 14, oneOrTwo: 2)
+quinn.addFeed(month: "October", date: 18, time: 14, amount: 3.5)
+quinn.addTummyEvent(month: "October", date: 18, time: 15, timeOnTummy: 0.5)
+quinn.addDiaperChange(month: "October", date: 18, time: 16, oneOrTwo: 1)
+quinn.addFeed(month: "October", date: 18, time: 17, amount: 2.5)
+quinn.addNap(month: "October", date: 18, time: 17, napLength: 0.75)
+quinn.addDiaperChange(month: "October", date: 18, time: 18, oneOrTwo: 2)
+quinn.addFeed(month: "October", date: 18, time: 20, amount: 3.75)
+quinn.addDiaperChange(month: "October", date: 18, time: 21, oneOrTwo: 1)
 
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
@@ -307,9 +187,9 @@ quinn.addDiaperChange(date: "October 24", time: 21, oneOrTwo: 1)
 // print(quinn.sleep)
 
 // testing displayEvent method
-// quinn.displayDiaperChange(date: "October 18")
-// quinn.displayFeed(date: "October 18")
-// quinn.displayTummyTime(date: "October 18")
-// quinn.displayOvernightSleep(date: "October 18")
-// quinn.displayNaps(date: "October 18")
-quinn.displayEvents(date: "October 19")
+// quinn.displayDiaperChange(month: "October", date: 18)
+// quinn.displayFeed(month: "October", date: 18)
+// quinn.displayTummyTime(month: "October", date: 18)
+// quinn.displayOvernightSleep(month: "October", date: 18)
+quinn.displayNaps(month: "October", date: 18)
+// quinn.displayEvents(date: "October 19")
