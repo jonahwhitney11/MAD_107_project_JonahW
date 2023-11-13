@@ -187,9 +187,9 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 21, o
 // print(quinn.sleep)
 
 // testing displayEvent method
-// quinn.displayDiaperChange(month: "October", date: 18)
-// quinn.displayFeed(month: "October", date: 18)
-// quinn.displayTummyTime(month: "October", date: 18)
-// quinn.displayOvernightSleep(month: "October", date: 18)
-quinn.displayNaps(month: "October", date: 18)
+// quinn.displayDiaperChange(month: Baby.months.October.rawValue, date: 18)
+// quinn.displayFeed(month: Baby.months.October.rawValue, date: 18)
+// quinn.displayTummyTime(month: Baby.months.October.rawValue, date: 18)
+// quinn.displayOvernightSleep(month: Baby.months.October.rawValue, date: 18)
+quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayEvents(date: "October 19")
