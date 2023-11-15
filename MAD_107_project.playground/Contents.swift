@@ -101,7 +101,15 @@ class Baby {
     func displayDiaperChange(month: String, date: Int) {
         for event in dirtyDiapers {
             if month == event[0] as! String && date == event[1] as! Int {
-                print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2]).")
+                if event[2] as! Int > 12 && (event[2] as! Int) < 24 {
+                    print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2] as! Int - 12)PM.")
+                } else if (event[2] as! Int) < 12 {
+                    print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2])AM.")
+                } else if (event[2] as! Int) == 12 {
+                    print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2])PM.")
+                } else {
+                    print("Dirty diaper on \(month) \(date). \(name) went number \(event[3]) at \(event[2] as! Int - 12)AM.")
+                }
             }
         }
     }
@@ -109,7 +117,15 @@ class Baby {
     func displayFeed(month: String, date: Int) {
         for event in feeding {
             if month == event[0] as! String && date == event[1] as! Int {
-                print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2]).")
+                if event[2] as! Int > 12 && (event[2] as! Int) < 24 {
+                    print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2] as! Int - 12)PM.")
+                } else if (event[2] as! Int) < 12 {
+                    print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2])AM.")
+                } else if (event[2] as! Int) == 12 {
+                    print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2])PM.")
+                } else {
+                    print("Feeding on \(month) \(date), \(name) consumed \(event[3]) ounces of milk at \(event[2] as! Int - 12)AM.")
+                }
             }
         }
     }
@@ -117,7 +133,15 @@ class Baby {
     func displayTummyTime(month: String, date: Int) {
         for event in tummyTime {
             if month == event[0] as! String && date == event[1] as! Int {
-                print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2]) for \(event[3]) hours.")
+                if event[2] as! Int > 12 && (event[2] as! Int) < 24 {
+                    print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2] as! Int - 12)PM for \(event[3]) hours.")
+                } else if (event[2] as! Int) < 12 {
+                    print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2])AM for \(event[3]) hours.")
+                } else if (event[2] as! Int) == 12 {
+                    print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2])PM for \(event[3]) hours.")
+                } else {
+                    print("Tummy time on \(month) \(date), \(name) played on their tummy at \(event[2] as! Int - 12)AM for \(event[3]) hours.")
+                }
             }
         }
     }
@@ -133,7 +157,15 @@ class Baby {
     func displayNaps(month: String, date: Int) {
         for event in naps {
             if month == event[0] as! String && date == event[1] as! Int {
-                print("\(name) napped on \(month) \(date) at \(event[2]) for \(event[3]) hours.")
+                if event[2] as! Int > 12 && (event[2] as! Int) < 24 {
+                    print("\(name) napped on \(month) \(date) at \(event[2] as! Int - 12)PM for \(event[3]) hours.")
+                } else if (event[2] as! Int) < 12 {
+                    print("\(name) napped on \(month) \(date) at \(event[2])AM for \(event[3]) hours.")
+                } else if (event[2] as! Int) == 12 {
+                    print("\(name) napped on \(month) \(date) at \(event[2])PM for \(event[3]) hours.")
+                } else {
+                    print("\(name) napped on \(month) \(date) at \(event[2] as! Int - 12)AM for \(event[3]) hours.")
+                }
             }
         }
     }
@@ -141,7 +173,7 @@ class Baby {
     func displayEvents(month: String, date: Int) {
         for event in events {
             if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.dirtyDiaper.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 && !=24 {
+                if event[3] as! Int > 12 && (event[3] as! Int) < 24 {
                     print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3] as! Int - 12)PM.")
                 } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3])AM.")
@@ -151,7 +183,7 @@ class Baby {
                     print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3] as! Int - 12)AM.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.feeding.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 && !=24 {
+                if event[3] as! Int > 12 && (event[3] as! Int) < 24 {
                     print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3] as! Int - 12)PM.")
                 } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3])AM.")
@@ -161,7 +193,7 @@ class Baby {
                     print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3] as! Int - 12)AM.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.tummyTime.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 && !=24 {
+                if event[3] as! Int > 12 && (event[3] as! Int) < 24 {
                     print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3] as! Int - 12)PM for \(event[4]) hours.")
                 } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3])AM for \(event[4]) hours.")
@@ -171,7 +203,7 @@ class Baby {
                     print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3] as! Int - 12)AM for \(event[4]) hours.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.nap.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 && !=24 {
+                if event[3] as! Int > 12 && (event[3] as! Int) < 24 {
                     print("\(name) napped on \(month) \(date) at \(event[3] as! Int - 12)PM for \(event[4]) hours.")
                 } else if (event[3] as! Int) < 12 {
                     print("\(name) napped on \(month) \(date) at \(event[3])AM for \(event[4]) hours.")
