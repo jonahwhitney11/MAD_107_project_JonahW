@@ -141,15 +141,31 @@ class Baby {
     func displayEvents(month: String, date: Int) {
         for event in events {
             if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.dirtyDiaper.rawValue == event[0] as! String {
-                print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3]).")
+                if event[3] as! Int > 12 {
+                    print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3] as! Int - 12)PM.")
+                } else {
+                    print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3])AM.")
+                }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.feeding.rawValue == event[0] as! String {
-                print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3]).")
+                if event[3] as! Int > 12 {
+                    print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3] as! Int - 12)PM.")
+                } else {
+                    print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3])AM.")
+                }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.tummyTime.rawValue == event[0] as! String {
-                print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3]) for \(event[4]) hours.")
+                if event[3] as! Int > 12 {
+                    print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3] as! Int - 12)PM for \(event[4]) hours.")
+                } else {
+                    print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3])AM for \(event[4]) hours.")
+                }
+            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.nap.rawValue == event[0] as! String {
+                if event[3] as! Int > 12 {
+                    print("\(name) napped on \(month) \(date) at \(event[3] as! Int - 12) for \(event[4]) hours.")
+                } else {
+                    print("\(name) napped on \(month) \(date) at \(event[3]) for \(event[4]) hours.")
+                }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.sleep.rawValue == event[0] as! String {
                 print("\(eventTypes.sleep.rawValue) on \(month) \(date), \(name) slept for \(event[3]) hours.")
-            } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.nap.rawValue == event[0] as! String {
-                print("\(name) napped on \(month) \(date) at \(event[3]) for \(event[4]) hours.")
             }
         }
     }
@@ -178,6 +194,7 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 18, o
 quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 20, amount: 3.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 21, oneOrTwo: 1)
 
+"""
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 19, timeAsleep: 9.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 7, oneOrTwo: 1)
 quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 7, amount: 3.25)
@@ -317,7 +334,8 @@ quinn.addNap(month: Baby.months.October.rawValue, date: 25, time: 17, napLength:
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 18, oneOrTwo: 2)
 quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 20, amount: 3.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, oneOrTwo: 1)
-
+"""
+                
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
 // print(quinn.dirtyDiapers)
