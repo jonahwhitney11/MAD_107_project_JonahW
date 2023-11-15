@@ -141,28 +141,44 @@ class Baby {
     func displayEvents(month: String, date: Int) {
         for event in events {
             if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.dirtyDiaper.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 {
+                if event[3] as! Int > 12 && !=24 {
                     print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3] as! Int - 12)PM.")
-                } else {
+                } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3])AM.")
+                } else if (event[3] as! Int) == 12 {
+                    print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3])PM.")
+                } else {
+                    print("\(eventTypes.dirtyDiaper.rawValue) on \(month) \(date), \(name) went number \(event[4]) at \(event[3] as! Int - 12)AM.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.feeding.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 {
+                if event[3] as! Int > 12 && !=24 {
                     print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3] as! Int - 12)PM.")
-                } else {
+                } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3])AM.")
+                } else if (event[3] as! Int) == 12 {
+                    print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3])PM.")
+                } else {
+                    print("\(eventTypes.feeding.rawValue) on \(month) \(date), \(name) consumed \(event[4]) ounces of milk at \(event[3] as! Int - 12)AM.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.tummyTime.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 {
+                if event[3] as! Int > 12 && !=24 {
                     print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3] as! Int - 12)PM for \(event[4]) hours.")
-                } else {
+                } else if (event[3] as! Int) < 12 {
                     print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3])AM for \(event[4]) hours.")
+                } else if (event[3] as! Int) == 12 {
+                    print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3])PM for \(event[4]) hours.")
+                } else {
+                    print("\(eventTypes.tummyTime.rawValue) on \(month) \(date), \(name) played on their tummy at \(event[3] as! Int - 12)AM for \(event[4]) hours.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.nap.rawValue == event[0] as! String {
-                if event[3] as! Int > 12 {
-                    print("\(name) napped on \(month) \(date) at \(event[3] as! Int - 12) for \(event[4]) hours.")
+                if event[3] as! Int > 12 && !=24 {
+                    print("\(name) napped on \(month) \(date) at \(event[3] as! Int - 12)PM for \(event[4]) hours.")
+                } else if (event[3] as! Int) < 12 {
+                    print("\(name) napped on \(month) \(date) at \(event[3])AM for \(event[4]) hours.")
+                } else if (event[3] as! Int) == 12 {
+                    print("\(name) napped on \(month) \(date) at \(event[3])PM for \(event[4]) hours.")
                 } else {
-                    print("\(name) napped on \(month) \(date) at \(event[3]) for \(event[4]) hours.")
+                    print("\(name) napped on \(month) \(date) at \(event[3] as! Int - 12)AM for \(event[4]) hours.")
                 }
             } else if "\(month) \(date)" == "\(event[1]) \(event[2])" && eventTypes.sleep.rawValue == event[0] as! String {
                 print("\(eventTypes.sleep.rawValue) on \(month) \(date), \(name) slept for \(event[3]) hours.")
