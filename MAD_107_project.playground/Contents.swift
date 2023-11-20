@@ -221,10 +221,8 @@ class Baby {
     
     // method for calculating total instances of different diaper changes on a given day
     func totalDirtyDiapersDay(month: String, date: Int) {
-        
         // iterate over dirtyDiapers array
         for diaper in dirtyDiapers {
-            
             // check if the month and date inside the diaper array inside of the dirtyDiapers array matches the given date
             if "\(diaper[0]) \(diaper[1])" == "\(month) \(date)" {
                 // if the diaper is a 1, inriment wet diapers by 1.
@@ -242,12 +240,15 @@ class Baby {
     
     // method for calculating total milk consummed on a given day
     func totalFeedingsDay(month: String, date: Int) {
-        
+        // iterate over feeding array
         for feed in feeding {
+            // check if the month and date of the diaper array matches the given month and date
             if "\(feed[0]) \(feed[1])" == "\(month) \(date)" {
+                // if it is then add the amount that was consumed during that feed to milkConsumed
                 milkConsumed += feed[3] as! Float
             }
         }
+        // display message stating how much milk was consumed on the given day
         print("\(name) consumed \(milkConsumed) ounces of milk on \(month) \(date).")
     }
     
