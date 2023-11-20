@@ -257,6 +257,15 @@ class Baby {
     }
     
     // method for calculating total nap times on a given day
+    func totalNapsDay(month: String, date: Int) {
+        
+        for nap in naps {
+            if "\(nap[0]) \(nap[1])" == "\(month) \(date)" {
+                napTime += nap[3] as! Float
+            }
+        }
+        print("\(name) napped for a total of \(napTime) hours on \(month) \(date).")
+    }
 }
 
 var quinn = Baby(name: "Quinn", gender: "Female")
@@ -444,4 +453,5 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // testing methods that calculate totals of event types
 // quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
 // quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
-quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
+// quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
+quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
