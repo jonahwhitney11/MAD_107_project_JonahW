@@ -219,7 +219,7 @@ class Baby {
         }
     }
     
-    // methods for calculating total instances of different event types
+    // method for calculating total instances of different diaper changes on a given day
     func totalDirtyDiapersDay(month: String, date: Int) {
         
         for diaper in dirtyDiapers {
@@ -234,6 +234,7 @@ class Baby {
         print("\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date).")
     }
     
+    // method for calculating total milk consummed on a given day
     func totalFeedingsDay(month: String, date: Int) {
         
         for feed in feeding {
@@ -243,6 +244,19 @@ class Baby {
         }
         print("\(name) consumed \(milkConsumed) ounces of milk on \(month) \(date).")
     }
+    
+    // method for calculating total tummy time on a given day
+    func totalTummyTimeDay(month: String, date: Int) {
+        
+        for event in tummyTime {
+            if "\(event[0]) \(event[1])" == "\(month) \(date)" {
+                timeOnTummy += event[3] as! Float
+            }
+        }
+        print("\(name) spend \(timeOnTummy) hours on their tummy on \(month) \(date).")
+    }
+    
+    // method for calculating total nap times on a given day
 }
 
 var quinn = Baby(name: "Quinn", gender: "Female")
@@ -429,4 +443,5 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 
 // testing methods that calculate totals of event types
 // quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
-quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
+// quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
+quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
