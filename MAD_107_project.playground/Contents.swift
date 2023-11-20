@@ -222,15 +222,21 @@ class Baby {
     // method for calculating total instances of different diaper changes on a given day
     func totalDirtyDiapersDay(month: String, date: Int) {
         
+        // iterate over dirtyDiapers array
         for diaper in dirtyDiapers {
+            
+            // check if the month and date inside the diaper array inside of the dirtyDiapers array matches the given date
             if "\(diaper[0]) \(diaper[1])" == "\(month) \(date)" {
+                // if the diaper is a 1, inriment wet diapers by 1.
                 if diaper[3] as! Int == 1 {
                     wet += 1
                 } else {
+                    // if the diaper wasn't a 1, then it has to be 2, so incriment number2 by 1.
                     number2 += 1
                 }
             }
         }
+        // display message stating how many of each diaper type occured on the given day.
         print("\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date).")
     }
     
@@ -447,7 +453,7 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.displayTummyTime(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayOvernightSleep(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
-// quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
+quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
 
 
 // testing methods that calculate totals of event types
