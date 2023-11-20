@@ -33,7 +33,7 @@ class Baby {
     var timeOnTummy: Float = 0
     
     // variable for milk consumption
-    var milkConsumed = 0
+    var milkConsumed: Float = 0
     
     // enum with months
     enum months: String {
@@ -233,6 +233,16 @@ class Baby {
         }
         print("\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date).")
     }
+    
+    func totalFeedingsDay(month: String, date: Int) {
+        
+        for feed in feeding {
+            if "\(feed[0]) \(feed[1])" == "\(month) \(date)" {
+                milkConsumed += feed[3] as! Float
+            }
+        }
+        print("\(name) consumed \(milkConsumed) ounces of milk on \(month) \(date).")
+    }
 }
 
 var quinn = Baby(name: "Quinn", gender: "Female")
@@ -418,4 +428,5 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 
 
 // testing methods that calculate totals of event types
-quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
+// quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
+quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
