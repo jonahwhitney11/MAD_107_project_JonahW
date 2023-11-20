@@ -244,7 +244,7 @@ class Baby {
         for feed in feeding {
             // check if the month and date of the diaper array matches the given month and date
             if "\(feed[0]) \(feed[1])" == "\(month) \(date)" {
-                // if it is then add the amount that was consumed during that feed to milkConsumed
+                // if it does then add the amount that was consumed during that feed to milkConsumed
                 milkConsumed += feed[3] as! Float
             }
         }
@@ -254,12 +254,15 @@ class Baby {
     
     // method for calculating total tummy time on a given day
     func totalTummyTimeDay(month: String, date: Int) {
-        
-        for event in tummyTime {
-            if "\(event[0]) \(event[1])" == "\(month) \(date)" {
-                timeOnTummy += event[3] as! Float
+        // iterate over tummyTime array
+        for tummyEvent in tummyTime {
+            // check if the month and date of current tummyEvent matches the given month and date
+            if "\(tummyEvent[0]) \(tummyEvent[1])" == "\(month) \(date)" {
+                // if it does then add the time on time from that tummyEvent to timeOnTummy
+                timeOnTummy += tummyEvent[3] as! Float
             }
         }
+        // display messaging stating how much time baby spent on their tummy on the given date
         print("\(name) spend \(timeOnTummy) hours on their tummy on \(month) \(date).")
     }
     
@@ -454,11 +457,11 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.displayTummyTime(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayOvernightSleep(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
-quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
+// quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
 
 
 // testing methods that calculate totals of event types
 // quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
 // quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
-// quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
-quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
+quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
+// quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
