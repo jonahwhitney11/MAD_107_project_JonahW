@@ -268,12 +268,15 @@ class Baby {
     
     // method for calculating total nap times on a given day
     func totalNapsDay(month: String, date: Int) {
-        
+        // iterate over naps array
         for nap in naps {
+            // check if the month and date of the current nap matches the given month and date
             if "\(nap[0]) \(nap[1])" == "\(month) \(date)" {
+                // if it does then add the duration of the nap to napTime
                 napTime += nap[3] as! Float
             }
         }
+        // display message stating how much the baby napped on that day
         print("\(name) napped for a total of \(napTime) hours on \(month) \(date).")
     }
 }
