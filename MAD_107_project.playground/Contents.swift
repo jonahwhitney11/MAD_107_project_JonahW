@@ -98,6 +98,7 @@ class Baby {
         print("\(eventTypes.nap.rawValue) event successfully logged.")
     }
     
+    // methods for displaying different events by date
     func displayDiaperChange(month: String, date: Int) {
         for event in dirtyDiapers {
             if month == event[0] as! String && date == event[1] as! Int {
@@ -216,6 +217,21 @@ class Baby {
                 print("\(eventTypes.sleep.rawValue) on \(month) \(date), \(name) slept for \(event[3]) hours.")
             }
         }
+    }
+    
+    // methods for calculating total instances of different event types
+    func totalDirtyDiapersDay(month: String, date: Int) {
+        
+        for diaper in dirtyDiapers {
+            if "\(diaper[0]) \(diaper[1])" == "\(month) \(date)" {
+                if diaper[3] as! Int == 1 {
+                    wet += 1
+                } else {
+                    number2 += 1
+                }
+            }
+        }
+        print("\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date).")
     }
 }
 
@@ -398,4 +414,8 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.displayTummyTime(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayOvernightSleep(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
-quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
+// quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
+
+
+// testing methods that calculate totals of event types
+quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
