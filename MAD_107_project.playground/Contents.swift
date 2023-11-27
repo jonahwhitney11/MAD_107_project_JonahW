@@ -606,8 +606,8 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
 
 // testing methods that calculate averages for week of different events
-// quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
-// quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
-// quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
-// quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
+quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
+quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
+quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
+quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
 quinn.averageNapTime(month: Baby.months.October.rawValue, startDate: 18)
