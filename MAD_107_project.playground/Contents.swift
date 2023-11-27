@@ -364,6 +364,32 @@ class Baby {
         // display statement showing the average of tummy time per day for the week
         print("\(name) spent an average of \(averageTummyTimePerDay) hours of time on thier tummy this week.")
     }
+    
+    // method for calculating average of overnight sleep over the course of a week
+    func averageOvernightSleep(month: String, startDate: Int) {
+        // variables for calculating averages
+        // current date is for incrimenting from the start date
+        var currentDate = startDate
+        // averageSleep will be used later in calculation
+        var averageSleep: Float = 0
+        // while loop to keep track of current date for the week
+        while currentDate < startDate + 7 {
+            // iterate over overnightSleep array
+            for sleepEvent in sleep {
+                // check if the month and date of current sleep matches the given month and date
+                if "\(sleepEvent[0]) \(sleepEvent[1])" == "\(month) \(currentDate)" {
+                    // add sleepEvent to overnightSleep
+                    overnightSleep += sleepEvent[2] as! Float
+                }
+            }
+            // incriment currentDate to the next date
+            currentDate += 1
+        }
+        // calculating average of overnight sleep per day over the course of a week
+        averageSleep = overnightSleep / 7
+        // display statement showing the average of overnight sleep for the weeek
+        print("\(name) slept an average of \(averageSleep) hours per night this week.")
+    }
 }
 
 // instance of baby class
@@ -557,3 +583,4 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
 // quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
 // quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
