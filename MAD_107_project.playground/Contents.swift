@@ -290,7 +290,7 @@ class Baby {
         var number2Average = 0
         
         // while loop to keep track of dates for the week
-        while currentDate <= startDate + 7 {
+        while currentDate < startDate + 7 {
             // iterate over dirtyDiapers array
             for diaper in dirtyDiapers {
                 if "\(diaper[0]) \(diaper[1])" == "\(month) \(startDate)" {
@@ -310,7 +310,7 @@ class Baby {
         averageWet = wet / 7
         number2Average = number2 / 7
         // display statement showing averages of each type of diaper change for the week
-        print("\(name) went number 1 \(averageWet) times per day, and number 2 \(number2Average) times per day this week.")
+        print("\(name) had \(averageWet) wet per day, and \(number2Average) poopy diapers per day this week.")
     }
 }
 
@@ -480,8 +480,8 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
                 
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
-print(quinn.dirtyDiapers)
-// print(quinn.feeding)
+// print(quinn.dirtyDiapers)
+print(quinn.feeding)
 // print(quinn.naps)
 // print(quinn.tummyTime)
 // print(quinn.sleep)
