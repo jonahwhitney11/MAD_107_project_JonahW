@@ -333,8 +333,36 @@ class Baby {
             // incriment currentDate to the next date
             currentDate += 1
         }
+        // calculating averages of milk consumed per day over the course of a week
         averageMilkPerDay = milkConsumed / 7
+        // display statement showing average of milk consumed per day for the week
         print("\(name) consumed an average of \(averageMilkPerDay) ounces of milk per day this week.")
+    }
+    
+    // method for calculating average of tummy time per day over the course of a week
+    func averageTummyTimeWeek(month: String, startDate: Int) {
+        // variables for calculating averages
+        // current date is for incrimenting from the start date
+        var currentDate = startDate
+        // averageTummyTimePerDay will be used later in calculation
+        var averageTummyTimePerDay: Float = 0
+        // while loop to keep track of current date for the week
+        while currentDate < startDate + 7 {
+            // iterate over tummyTime array
+            for tummyEvent in tummyTime {
+                // check if the month and date of current tummyEvent matches the given month and date
+                if "\(tummyEvent[0]) \(tummyEvent[1])" == "\(month) \(currentDate)" {
+                    // if it does then add the time on time from that tummyEvent to timeOnTummy
+                    timeOnTummy += tummyEvent[3] as! Float
+                }
+            }
+            // incriment currentDate to the next date
+            currentDate += 1
+        }
+        // calculating average of tummy time per day over the course of the week
+        averageTummyTimePerDay = timeOnTummy / 7
+        // display statement showing the average of tummy time per day for the week
+        print("\(name) spent an average of \(averageTummyTimePerDay) hours of time on thier tummy this week.")
     }
 }
 
@@ -528,3 +556,4 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // testing methods that calculate averages for week of different events
 // quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
 // quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
