@@ -263,7 +263,7 @@ class Baby {
             }
         }
         // display messaging stating how much time baby spent on their tummy on the given date
-        print("\(name) spend \(timeOnTummy) hours on their tummy on \(month) \(date).")
+        print("\(name) spent \(timeOnTummy) hours on their tummy on \(month) \(date).")
     }
     
     // method for calculating total nap times on a given day
@@ -389,6 +389,32 @@ class Baby {
         averageSleep = overnightSleep / 7
         // display statement showing the average of overnight sleep for the weeek
         print("\(name) slept an average of \(averageSleep) hours per night this week.")
+    }
+    
+    // method for calculating average of naptime had per day during the course of the week
+    func averageNapTime(month: String, startDate: Int) {
+        // variables for calculating averages
+        // current date is for incrimenting from the start date
+        var currentDate = startDate
+        // napAverage will be used later in calculation
+        var napAverage: Float = 0
+        // while loop to keep track of current date for the week
+        while currentDate < startDate + 7 {
+            // iterate over naps array
+            for nap in naps {
+                // check if the month and date of the current nap matches the given month and date
+                if "\(nap[0]) \(nap[1])" == "\(month) \(currentDate)" {
+                    // if it does then add the duration of the nap to napTime
+                    napTime += nap[3] as! Float
+                }
+            }
+            // incriment currentDate to the next date
+            currentDate += 1
+        }
+        // calculate average time napped per day over the course of the week
+        napAverage = napTime / 7
+        // display statement showing the average of time napped per day during the week
+        print("\(name) napped for an average of \(napAverage) hours per day this week.")
     }
 }
 
@@ -584,3 +610,4 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
 // quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
 // quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
+quinn.averageNapTime(month: Baby.months.October.rawValue, startDate: 18)
