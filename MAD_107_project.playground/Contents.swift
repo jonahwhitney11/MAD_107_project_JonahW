@@ -279,8 +279,42 @@ class Baby {
         // display message stating how much the baby napped on that day
         print("\(name) napped for a total of \(napTime) hours on \(month) \(date).")
     }
+    
+    // method for calculate averages of dirty diapers over the course of a week
+    func dirtyDiaperAverages(month: String, startDate: Int) {
+        // variables for calculating averages
+        // current date is for incrimenting from the start date
+        var currentDate = startDate
+        // averageWet and number2Average start at 0, but will later be used to calculate the average per day over the course of the week
+        var averageWet = 0
+        var number2Average = 0
+        
+        // while loop to keep track of dates for the week
+        while currentDate <= startDate + 7 {
+            // iterate over dirtyDiapers array
+            for diaper in dirtyDiapers {
+                if "\(diaper[0]) \(diaper[1])" == "\(month) \(startDate)" {
+                    // if the diaper is a 1, inriment wet diapers by 1.
+                    if diaper[3] as! Int == 1 {
+                        wet += 1
+                    } else {
+                        // if the diaper wasn't a 1, then it has to be 2, so incriment number2 by 1.
+                        number2 += 1
+                    }
+                }
+            }
+            // incriment currentDate to the next date
+            currentDate += 1
+        }
+        // calculating the averages of each type of diaper change for the week
+        averageWet = wet / 7
+        number2Average = number2 / 7
+        // display statement showing averages of each type of diaper change for the week
+        print("\(name) went number 1 \(averageWet) times per day, and number 2 \(number2Average) times per day this week.")
+    }
 }
 
+// instance of baby class
 var quinn = Baby(name: "Quinn", gender: "Female")
 
 // testing methods adding different events to appropriate arrays
@@ -304,7 +338,6 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 18, o
 quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: 20, amount: 3.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: 21, oneOrTwo: 1)
 
-"""
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 19, timeAsleep: 9.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 7, oneOrTwo: 1)
 quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 7, amount: 3.25)
@@ -444,11 +477,10 @@ quinn.addNap(month: Baby.months.October.rawValue, date: 25, time: 17, napLength:
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 18, oneOrTwo: 2)
 quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 20, amount: 3.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, oneOrTwo: 1)
-"""
                 
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
-// print(quinn.dirtyDiapers)
+print(quinn.dirtyDiapers)
 // print(quinn.feeding)
 // print(quinn.naps)
 // print(quinn.tummyTime)
@@ -466,5 +498,8 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // testing methods that calculate totals of event types
 // quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
 // quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
-quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
+// quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
 // quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
+
+// testing methods that calculate averages for week of different events
+quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
