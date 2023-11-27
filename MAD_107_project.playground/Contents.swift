@@ -4,7 +4,7 @@ import UIKit
 
 class Baby {
     
-    // variables within class for name/gender
+    // constants within class for name/gender
     let name: String
     let gender: String
     
