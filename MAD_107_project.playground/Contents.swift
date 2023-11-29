@@ -156,7 +156,7 @@ class Baby {
     }
     
     // method for calculating total instances of different diaper changes on a given day
-    func totalDirtyDiapersDay(month: String, date: Int) {
+    func totalDirtyDiapersDay(month: String, date: Int) -> String {
         // iterate over dirtyDiapers array
         for diaper in dirtyDiapers {
             // check if the month and date inside the diaper array inside of the dirtyDiapers array matches the given date
@@ -170,12 +170,12 @@ class Baby {
                 }
             }
         }
-        // display message stating how many of each diaper type occured on the given day.
-        print("\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date).")
+        // return display message stating how many of each diaper type occured on the given day.
+        return "\(name) had \(wet) wet diapers and \(number2) poopy diapers on \(month) \(date)."
     }
     
     // method for calculating total milk consummed on a given day
-    func totalFeedingsDay(month: String, date: Int) {
+    func totalFeedingsDay(month: String, date: Int) -> String {
         // iterate over feeding array
         for feed in feeding {
             // check if the month and date of the diaper array matches the given month and date
@@ -184,12 +184,12 @@ class Baby {
                 milkConsumed += feed[3] as! Float
             }
         }
-        // display message stating how much milk was consumed on the given day
-        print("\(name) consumed \(milkConsumed) ounces of milk on \(month) \(date).")
+        // return display message stating how much milk was consumed on the given day
+        return "\(name) consumed \(milkConsumed) ounces of milk on \(month) \(date)."
     }
     
     // method for calculating total tummy time on a given day
-    func totalTummyTimeDay(month: String, date: Int) {
+    func totalTummyTimeDay(month: String, date: Int) -> String {
         // iterate over tummyTime array
         for tummyEvent in tummyTime {
             // check if the month and date of current tummyEvent matches the given month and date
@@ -198,12 +198,12 @@ class Baby {
                 timeOnTummy += tummyEvent[3] as! Float
             }
         }
-        // display messaging stating how much time baby spent on their tummy on the given date
-        print("\(name) spent \(timeOnTummy) hours on their tummy on \(month) \(date).")
+        // return display messaging stating how much time baby spent on their tummy on the given date
+        return "\(name) spent \(timeOnTummy) hours on their tummy on \(month) \(date)."
     }
     
     // method for calculating total nap times on a given day
-    func totalNapsDay(month: String, date: Int) {
+    func totalNapsDay(month: String, date: Int) -> String {
         // iterate over naps array
         for nap in naps {
             // check if the month and date of the current nap matches the given month and date
@@ -212,8 +212,8 @@ class Baby {
                 napTime += nap[3] as! Float
             }
         }
-        // display message stating how much the baby napped on that day
-        print("\(name) napped for a total of \(napTime) hours on \(month) \(date).")
+        // return display message stating how much the baby napped on that day
+        return "\(name) napped for a total of \(napTime) hours on \(month) \(date)."
     }
     
     // method for calculate averages of dirty diapers over the course of a week
@@ -349,147 +349,125 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: "6:00
 quinn.addFeed(month: Baby.months.October.rawValue, date: 18, time: "8:00 PM", amount: 3.75)
 quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 18, time: "9:10 PM", oneOrTwo: 1)
 
-"""
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 19, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 19, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 19, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: 21, oneOrTwo: 1)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 19, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 19, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 19, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 19, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 19, time: "9:10 PM", oneOrTwo: 1)
 
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 20, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 20, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 20, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: 21, oneOrTwo: 1)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 20, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 20, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 20, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 20, time: "9:10 PM", oneOrTwo: 1)
 
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 21, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 21, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 21, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: 21, oneOrTwo: 1)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 21, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 21, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 21, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 21, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 21, time: "9:10 PM", oneOrTwo: 1)
 
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 22, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 22, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 22, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 20, time: 22, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: 21, oneOrTwo: 1)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 22, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 22, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 22, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 22, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 22, time: "9:10 PM", oneOrTwo: 1)
 
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 23, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 23, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 23, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: 21, oneOrTwo: 1)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 23, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 23, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 23, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 23, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 23, time: "9:10 PM", oneOrTwo: 1)
 
 quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 24, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 24, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 24, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: 21, oneOrTwo: 1)
-
-quinn.addOvernightSleep(month: Baby.months.October.rawValue, date: 25, timeAsleep: 9.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 7, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 7, amount: 3.25)
-quinn.addNap(month: Baby.months.October.rawValue, date: 25, time: 8, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 9, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 9, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 25, time: 10, timeOnTummy: 0.25)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 11, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 11, amount: 3)
-quinn.addNap(month: Baby.months.October.rawValue, date: 25, time: 12, napLength: 2)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 14, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 14, amount: 3.5)
-quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 25, time: 15, timeOnTummy: 0.5)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 16, oneOrTwo: 1)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 17, amount: 2.5)
-quinn.addNap(month: Baby.months.October.rawValue, date: 25, time: 17, napLength: 0.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 18, oneOrTwo: 2)
-quinn.addFeed(month: Baby.months.October.rawValue, date: 25, time: 20, amount: 3.75)
-quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, oneOrTwo: 1)
-"""
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "7:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "7:15 AM", amount: 3.25)
+quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: "8:15 AM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "9:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "9:15 AM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 24, time: "10:00 AM", timeOnTummy: 0.25)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "11:00 AM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "11:10 AM", amount: 3)
+quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: "11:30 AM", napLength: 2)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "2:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "2:05 PM", amount: 3.5)
+quinn.addTummyEvent(month: Baby.months.October.rawValue, date: 24, time: "3:00 PM", timeOnTummy: 0.5)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "4:00 PM", oneOrTwo: 1)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "5:00 PM", amount: 2.5)
+quinn.addNap(month: Baby.months.October.rawValue, date: 24, time: "5:15 PM", napLength: 0.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "6:00 PM", oneOrTwo: 2)
+quinn.addFeed(month: Baby.months.October.rawValue, date: 24, time: "8:00 PM", amount: 3.75)
+quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 24, time: "9:10 PM", oneOrTwo: 1)
                 
 // testing that each event was added to events array, as well as the appropriate event type arrays
 // print(quinn.events)
@@ -507,12 +485,11 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.displayNaps(month: Baby.months.October.rawValue, date: 18)
 // quinn.displayEvents(month: Baby.months.October.rawValue, date: 18)
 
-
 // testing methods that calculate totals of event types
-// quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18)
-// quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18)
-// quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18)
-// quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
+// print(quinn.totalDirtyDiapersDay(month: Baby.months.October.rawValue, date: 18))
+// print(quinn.totalFeedingsDay(month: Baby.months.October.rawValue, date: 18))
+// print(quinn.totalTummyTimeDay(month: Baby.months.October.rawValue, date: 18))
+// print(quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18))
 
 // testing methods that calculate averages for week of different events
 // quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
