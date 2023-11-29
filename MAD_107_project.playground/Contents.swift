@@ -292,17 +292,7 @@ class Baby {
         // while loop to keep track of dates for the week
         while currentDate < startDate + 7 {
             // iterate over dirtyDiapers array
-            for diaper in dirtyDiapers {
-                if "\(diaper[0]) \(diaper[1])" == "\(month) \(startDate)" {
-                    // if the diaper is a 1, inriment wet diapers by 1.
-                    if diaper[3] as! Int == 1 {
-                        wet += 1
-                    } else {
-                        // if the diaper wasn't a 1, then it has to be 2, so incriment number2 by 1.
-                        number2 += 1
-                    }
-                }
-            }
+            totalDirtyDiapersDay(month: month, date: currentDate)
             // incriment currentDate to the next date
             currentDate += 1
         }
@@ -322,14 +312,7 @@ class Baby {
         var averageMilkPerDay: Float = 0.0
         // while loop to keep track of current date for the week
         while currentDate < startDate + 7 {
-            // iterate over feeding array
-            for feed in feeding {
-                // check if the month and date of the diaper array matches the given month and date
-                if "\(feed[0]) \(feed[1])" == "\(month) \(currentDate)" {
-                    // if it does then add the amount that was consumed during that feed to milkConsumed
-                    milkConsumed += feed[3] as! Float
-                }
-            }
+            totalFeedingsDay(month: month, date: currentDate)
             // incriment currentDate to the next date
             currentDate += 1
         }
@@ -349,13 +332,7 @@ class Baby {
         // while loop to keep track of current date for the week
         while currentDate < startDate + 7 {
             // iterate over tummyTime array
-            for tummyEvent in tummyTime {
-                // check if the month and date of current tummyEvent matches the given month and date
-                if "\(tummyEvent[0]) \(tummyEvent[1])" == "\(month) \(currentDate)" {
-                    // if it does then add the time on time from that tummyEvent to timeOnTummy
-                    timeOnTummy += tummyEvent[3] as! Float
-                }
-            }
+            totalTummyTimeDay(month: month, date: currentDate)
             // incriment currentDate to the next date
             currentDate += 1
         }
@@ -401,13 +378,7 @@ class Baby {
         // while loop to keep track of current date for the week
         while currentDate < startDate + 7 {
             // iterate over naps array
-            for nap in naps {
-                // check if the month and date of the current nap matches the given month and date
-                if "\(nap[0]) \(nap[1])" == "\(month) \(currentDate)" {
-                    // if it does then add the duration of the nap to napTime
-                    napTime += nap[3] as! Float
-                }
-            }
+            totalNapsDay(month: month, date: currentDate)
             // incriment currentDate to the next date
             currentDate += 1
         }
@@ -606,8 +577,8 @@ quinn.addDiaperChange(month: Baby.months.October.rawValue, date: 25, time: 21, o
 // quinn.totalNapsDay(month: Baby.months.October.rawValue, date: 18)
 
 // testing methods that calculate averages for week of different events
-quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
-quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
-quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
-quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.dirtyDiaperAverages(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.milkConsumedPerDayWeek(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.averageTummyTimeWeek(month: Baby.months.October.rawValue, startDate: 18)
+// quinn.averageOvernightSleep(month: Baby.months.October.rawValue, startDate: 18)
 quinn.averageNapTime(month: Baby.months.October.rawValue, startDate: 18)
